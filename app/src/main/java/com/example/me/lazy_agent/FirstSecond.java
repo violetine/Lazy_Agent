@@ -1,48 +1,47 @@
 package com.example.me.lazy_agent;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.view.MotionEvent;
+import android.view.Window;
 import android.widget.VideoView;
 
 
-public class MyActivity extends Activity {
+public class FirstSecond extends Activity {
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_my);
 
-            Button button = (Button) findViewById(R.id.button);
-
-            final TextView textView = (TextView) findViewById(R.id.text1);
+            // Hide the Title Bar
+//            requestWindowFeature(Window.FEATURE_NO_TITLE);
 
             final VideoView videoView = (VideoView) findViewById(R.id.video_view);
             String url = "android.resource://" + getPackageName() + "/" + R.raw.demo1;
             Uri uri = Uri.parse(url);
 
-            // nereik sito!!!
-            // videoView.setMediaController(new MediaController(this));
             videoView.setVideoURI(uri);
             videoView.requestFocus();
-
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-
-                    videoView.start();
-                    textView.setText("sucsess !");
-
-
-                }
-            });
+            videoView.start();
         }
+            @Override
+            public boolean onTouchEvent(MotionEvent event)
+            {
+                final int action = event.getAction();
+
+                if(action == MotionEvent.ACTION_DOWN) {
+                    Log.d("FirstSecond", "in onTouchEvent!");
+                    Intent intent=new Intent(this, Second.class);
+                    startActivity(intent);
+                }
+                return super.onTouchEvent(event);
+            }
 
 
         @Override
