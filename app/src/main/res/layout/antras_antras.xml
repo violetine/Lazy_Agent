@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:text="BUY"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        android:textStyle="bold|italic"
+        android:textSize="50dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="82dp"
+            android:layout_height="147dp"
+            android:id="@+id/imageView"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/s5"
+            android:layout_weight="0.22" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="+"
+            android:id="@+id/textView2"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.22"
+            android:textStyle="bold"
+            android:textSize="52dp" />
+
+        <ImageView
+            android:layout_width="82dp"
+            android:layout_height="147dp
+"
+            android:id="@+id/imageView3"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.22"
+            android:src="@drawable/dekliukas" />
+
+        <TextView
+            android:layout_width="71dp"
+            android:layout_height="200dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Only Today You Will Have Case For Your Smart Phone For Free ! !"
+            android:id="@+id/textView"
+            android:layout_gravity="center_vertical"
+            android:textSize="20dp"
+            android:textColor="#ffff1219"
+            android:textStyle="bold|italic"
+            android:layout_weight="0.17"
+            android:phoneNumber="false" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:text="I Really Want To Buy"
+        android:id="@+id/button2"
+        android:background="@android:color/transparent"
+        android:textSize="40dp"
+        android:textStyle="bold|italic" />
+
+</LinearLayout>
