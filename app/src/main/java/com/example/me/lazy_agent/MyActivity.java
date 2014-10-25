@@ -18,30 +18,18 @@ public class MyActivity extends Activity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_my);
 
-            Button button = (Button) findViewById(R.id.button);
-
-            final TextView textView = (TextView) findViewById(R.id.text1);
+//            Button button = (Button) findViewById(R.id.button);
+//
+//            final TextView textView = (TextView) findViewById(R.id.text1);
 
             final VideoView videoView = (VideoView) findViewById(R.id.video_view);
             String url = "android.resource://" + getPackageName() + "/" + R.raw.demo1;
             Uri uri = Uri.parse(url);
 
-            // nereik sito!!!
-            // videoView.setMediaController(new MediaController(this));
             videoView.setVideoURI(uri);
             videoView.requestFocus();
+            videoView.start();
 
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-
-
-                    videoView.start();
-                    textView.setText("sucsess !");
-
-
-                }
-            });
         }
 
 
