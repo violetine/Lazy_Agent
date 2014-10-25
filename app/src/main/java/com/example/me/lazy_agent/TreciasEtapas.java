@@ -1,12 +1,18 @@
 package com.example.me.lazy_agent;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerTabStrip;
+import android.support.v4.view.PagerTitleStrip;
 import android.support.v4.view.ViewPager;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ImageSpan;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,10 +29,11 @@ public class TreciasEtapas extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trecias_etapas_baze);
 
+        PagerTitleStrip pagerTitleStrip = (PagerTitleStrip) findViewById(R.id.pager_title_strip);
+
+
         StatePageAdapter statePageAdapter = new StatePageAdapter(getSupportFragmentManager());
-
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
-
         viewPager.setAdapter(statePageAdapter);
 
     }
@@ -59,9 +66,17 @@ public class TreciasEtapas extends FragmentActivity {
             return 3;
         }
 
+        Drawable myDrawable = getResources().getDrawable(R.drawable.galaxy_s5);
         @Override
         public CharSequence getPageTitle(int position) {
-            return "PIRMAS";
+
+            SpannableStringBuilder sb = new SpannableStringBuilder(" "); // space added before text for convenience
+
+            myDrawable.setBounds(0, 0, myDrawable.getIntrinsicWidth(), myDrawable.getIntrinsicHeight());
+            ImageSpan span = new ImageSpan(myDrawable, ImageSpan.ALIGN_BASELINE);
+            sb.setSpan(span, 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            return "s";
         }
     }
 
