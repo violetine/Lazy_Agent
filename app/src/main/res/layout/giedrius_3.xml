@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="92dp"
         android:text="BUY"
-        android:id="@+id/button"
+        android:id="@+id/button2"
         android:layout_gravity="center_horizontal"
         android:background="@android:color/transparent"
         android:textStyle="bold|italic"
