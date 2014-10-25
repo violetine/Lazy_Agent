@@ -11,6 +11,7 @@ import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 
 /**
  * Created by Paladin on 10/25/2014.
@@ -21,6 +22,9 @@ public class TestAntrasLangas extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_antras_langas);
+
+        // Hide the Title Bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         StatePageAdapter statePageAdapter = new StatePageAdapter(getSupportFragmentManager());
 
