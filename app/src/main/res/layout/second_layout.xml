@@ -3,18 +3,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="#2cc3ac"
+    android:id="@+id/deb">
 
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="349dp"
         android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.90" />
+        android:src="@drawable/u_n1" />
 
     <Button
-        android:layout_width="194dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Info"
         android:id="@+id/button" />

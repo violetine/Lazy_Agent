@@ -1,30 +1,39 @@
 package com.example.me.lazy_agent;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.Window;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 
-public class FirstSecond extends Activity {
+public class FirstSecond extends Activity implements SensorEventListener {
+
+    SensorManager sm;
+    long lastUpdate;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_my);
 
-            // Hide the Title Bar
-//            requestWindowFeature(Window.FEATURE_NO_TITLE);
-
             final VideoView videoView = (VideoView) findViewById(R.id.video_view);
             String url = "android.resource://" + getPackageName() + "/" + R.raw.demo1;
             Uri uri = Uri.parse(url);
+
+            sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+            lastUpdate = System.currentTimeMillis();
 
             videoView.setVideoURI(uri);
             videoView.requestFocus();
@@ -36,7 +45,6 @@ public class FirstSecond extends Activity {
                 final int action = event.getAction();
 
                 if(action == MotionEvent.ACTION_DOWN) {
-                    Log.d("FirstSecond", "in onTouchEvent!");
                     Intent intent=new Intent(this, Second.class);
                     startActivity(intent);
                 }
@@ -53,13 +61,70 @@ public class FirstSecond extends Activity {
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            // Handle action bar item clicks here. The action bar will
-            // automatically handle clicks on the Home/Up button, so long
-            // as you specify a parent activity in AndroidManifest.xml.
+
             int id = item.getItemId();
             if (id == R.id.action_settings) {
                 return true;
             }
             return super.onOptionsItemSelected(item);
         }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+
+            getAccelerometer(event);
+        }
+    }
+
+    private void getAccelerometer(SensorEvent event) {
+
+        float[] values = event.values;
+
+        float x = values[0];
+        float y = values[1];
+        float z = values[2];
+
+        float accelationSquareRoot = (x*x + y*y + z*z)
+                / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
+
+        long actualTime = System.currentTimeMillis();
+
+        if (accelationSquareRoot >= 1) {
+
+            if (actualTime-lastUpdate < 20) {
+
+                return;
+            }
+
+            lastUpdate = actualTime;
+
+            Toast.makeText(this, "Device was shuffled",
+                    Toast.LENGTH_SHORT).show();
+            Intent intent=new Intent(this, Second.class);
+            startActivity(intent);
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    @Override
+    protected void onPause() {
+        // unregister listener
+        super.onPause();
+        sm.unregisterListener(this);
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+        sm.registerListener(this, sm.getDefaultSensor
+                (Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
 }
