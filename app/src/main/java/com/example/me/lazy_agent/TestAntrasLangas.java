@@ -23,9 +23,6 @@ public class TestAntrasLangas extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_antras_langas);
 
-        // Hide the Title Bar
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         StatePageAdapter statePageAdapter = new StatePageAdapter(getSupportFragmentManager());
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
@@ -46,13 +43,13 @@ public class TestAntrasLangas extends FragmentActivity {
             switch (position)
             {
                 case 0 :
-                    Fragment pirmas = new Pirmas();
 
-                    return pirmas;
+
+                    return new Pirmas();
                 case 1 :
-                    Fragment antras = new Antras();
 
-                    return antras;
+
+                    return new Antras();
 //                case 2 :
 //                    Fragment trecias = new Trecias();
 //
@@ -80,7 +77,7 @@ public class TestAntrasLangas extends FragmentActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-            View rootView = inflater.inflate(R.layout.test_antras_pirmas,container,false); // per root view galima pagaut tevo elementus
+            View rootView = inflater.inflate(R.layout.antras_pirmas,container,false); // per root view galima pagaut tevo elementus
 
             return rootView;
         }
@@ -90,7 +87,7 @@ public class TestAntrasLangas extends FragmentActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-            View rootView = inflater.inflate(R.layout.test_antras_antras,container,false); // per root view galima pagaut tevo elementus
+            View rootView = inflater.inflate(R.layout.antras_antras,container,false); // per root view galima pagaut tevo elementus
 
             return rootView;
         }
