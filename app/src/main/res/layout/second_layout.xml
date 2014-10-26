@@ -18,6 +18,8 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Info"
-        android:id="@+id/button_to_main_menu" />
+        android:text="Yes!"
+        android:id="@+id/button_to_main_menu"
+        android:background="#7ed8fd"
+        android:layout_weight="0.30" />
 </LinearLayout>

@@ -56,7 +56,7 @@ public class FirstSecond extends Activity {
                             videoView.start();
                             break;
                         case 2:
-                            String url1 = "android.resource://" + getPackageName() + "/" + R.raw.mym;
+                            String url1 = "android.resource://" + getPackageName() + "/" + R.raw.newm;
                             Uri uri1 = Uri.parse(url1);
                             videoView.setVideoURI(uri1);
                             videoView.requestFocus();
@@ -70,9 +70,22 @@ public class FirstSecond extends Activity {
                             videoView.start();
                             break;
                         case 4:
-                            String url3 = "android.resource://" + getPackageName() + "/" + R.raw.mym;
+                            String url3 = "android.resource://" + getPackageName() + "/" + R.raw.newm;
                             Uri uri3 = Uri.parse(url3);
                             videoView.setVideoURI(uri3);
+                            videoView.requestFocus();
+                            videoView.start();
+                            break;
+                        case 5:
+                            String url4 = "android.resource://" + getPackageName() + "/" + R.raw.a10001;
+                            Uri uri4 = Uri.parse(url4);
+                            videoView.setVideoURI(uri4);
+                            videoView.requestFocus();
+                            videoView.start();
+                        case 6:
+                            String url5 = "android.resource://" + getPackageName() + "/" + R.raw.newm;
+                            Uri uri5 = Uri.parse(url5);
+                            videoView.setVideoURI(uri5);
                             videoView.requestFocus();
                             videoView.start();
                             break;
