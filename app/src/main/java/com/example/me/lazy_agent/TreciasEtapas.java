@@ -18,6 +18,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 
 import com.viewpagerindicator.CirclePageIndicator;
 
