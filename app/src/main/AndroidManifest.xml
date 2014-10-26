@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AntrasEtapasMenu"
+            android:name=".FirstSecond"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,7 +15,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Second"/>
-        <activity android:name=".FirstSecond"/>
+        <activity android:name=".AntrasEtapasMenu"/>
     </application>
 
 </manifest>

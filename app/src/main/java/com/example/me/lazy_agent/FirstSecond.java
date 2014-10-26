@@ -7,6 +7,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,13 +24,15 @@ public class FirstSecond extends Activity {
 //    SensorManager sm;
 //    long lastUpdate;
 
+    int count;
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_my);
 
             final VideoView videoView = (VideoView) findViewById(R.id.video_view);
-            String url = "android.resource://" + getPackageName() + "/" + R.raw.movie;
+            String url = "android.resource://" + getPackageName() + "/" + R.raw.mymov;
             Uri uri = Uri.parse(url);
 
 //            sm = (SensorManager) getSystemService(SENSOR_SERVICE);
@@ -38,22 +41,62 @@ public class FirstSecond extends Activity {
             videoView.setVideoURI(uri);
             videoView.requestFocus();
             videoView.start();
-
-            new Thread(){
-                public void run(){
-                    try{
-                        Thread.sleep(1200);
-      
+            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    count++;
+                    switch(count) {
+                        case 1:
+                            String url = "android.resource://" + getPackageName() + "/" + R.raw.movie;
+                            Uri uri = Uri.parse(url);
+                            videoView.setVideoURI(uri);
+                            videoView.requestFocus();
+                            videoView.start();
+                            break;
+                        case 2:
+                            String url1 = "android.resource://" + getPackageName() + "/" + R.raw.mym;
+                            Uri uri1 = Uri.parse(url1);
+                            videoView.setVideoURI(uri1);
+                            videoView.requestFocus();
+                            videoView.start();
+                            break;
+                        case 3:
+                            String url2 = "android.resource://" + getPackageName() + "/" + R.raw.antrasetapas;
+                            Uri uri2 = Uri.parse(url2);
+                            videoView.setVideoURI(uri2);
+                            videoView.requestFocus();
+                            videoView.start();
+                            break;
+                        case 4:
+                            String url3 = "android.resource://" + getPackageName() + "/" + R.raw.mym;
+                            Uri uri3 = Uri.parse(url3);
+                            videoView.setVideoURI(uri3);
+                            videoView.requestFocus();
+                            videoView.start();
+                            break;
                     }
-                    catch(Exception e){}
                 }
-            }.start();
+            });
 
-            String url1 = "android.resource://" + getPackageName() + "/" + R.raw.antrasetapas;
-            Uri uri1 = Uri.parse(url1);
-            videoView.setVideoURI(uri1);
-            videoView.requestFocus();
-            videoView.start();
+//            sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+//            lastUpdate = System.currentTimeMillis();
+
+
+//            new Thread(){
+//                public void run(){
+//                    try{
+//                        Thread.sleep(1200);
+//
+//                    }
+//                    catch(Exception e){}
+//                }
+//            }.start();
+
+//            String url1 = "android.resource://" + getPackageName() + "/" + R.raw.antrasetapas;
+//            Uri uri1 = Uri.parse(url1);
+//            videoView.setVideoURI(uri1);
+//            videoView.requestFocus();
+//            videoView.start();
 
         }
             @Override
