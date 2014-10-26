@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
     android:paddingTop="72dp"
+    android:background="#00bcd4"
     >
 
     <LinearLayout
@@ -16,7 +17,7 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/menu_brains"
-            android:background="@drawable/brains2"
+            android:background="@drawable/smegenys_su_remu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <LinearLayout
@@ -39,11 +40,12 @@
 
 
     <LinearLayout
+        android:id="@+id/skrendantis_procas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/menu_chip"
-        android:background="@drawable/chip1"
+        android:background="@drawable/chipas_su_remu"
         android:layout_width="128dp"
         android:layout_height="128dp" />
         <LinearLayout
@@ -64,11 +66,13 @@
     </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/skrendantis_foikas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
     <ImageView
+
         android:id="@+id/menu_foto"
-        android:background="@drawable/photo2"
+        android:background="@drawable/fotikas_su_remu"
         android:layout_width="128dp"
         android:layout_height="128dp" />
             <LinearLayout
