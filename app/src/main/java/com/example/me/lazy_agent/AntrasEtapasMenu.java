@@ -124,13 +124,10 @@ public class AntrasEtapasMenu extends FragmentActivity {
             LinearLayout linearLayout = (LinearLayout) rootView.findViewById(R.id.skrendancios_smegenys);
           //  ImageView imageView = (ImageView) rootView.findViewById(R.id.menu_brains);
 
-
             TranslateAnimation moveLefttoRight = new TranslateAnimation(width, 0, 0, 0);
             moveLefttoRight.setDuration(1000);
             moveLefttoRight.setFillAfter(true);
             linearLayout.startAnimation(moveLefttoRight);
-
-
 
             return rootView;
         }

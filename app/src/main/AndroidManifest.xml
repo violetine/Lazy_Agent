@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".AntrasEtapasMenu"
             android:label="@string/app_name" >
