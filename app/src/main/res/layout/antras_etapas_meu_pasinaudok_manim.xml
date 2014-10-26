@@ -17,7 +17,7 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/menu_brains"
-            android:background="@drawable/foto2"
+            android:background="@drawable/game_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <LinearLayout
@@ -36,7 +36,7 @@
 
         </LinearLayout>
     </LinearLayout>
-<!--
+
     <LinearLayout
         android:paddingLeft="16dp"
         android:background="#00838f"
@@ -96,7 +96,7 @@
 
         </LinearLayout>
     </LinearLayout>
--->
+
     <LinearLayout
         android:paddingLeft="16dp"
         android:background="#00838f"
@@ -107,7 +107,7 @@
         android:orientation="horizontal">
         <ImageView
             android:id="@+id/camera"
-            android:background="@drawable/foto2"
+            android:background="@drawable/gear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <LinearLayout
