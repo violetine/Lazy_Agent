@@ -19,6 +19,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 
+import com.viewpagerindicator.CirclePageIndicator;
+
 /**
  * Created by Paladin on 10/25/2014.
  */
@@ -29,12 +31,12 @@ public class TreciasEtapas extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.trecias_etapas_baze);
 
-        PagerTitleStrip pagerTitleStrip = (PagerTitleStrip) findViewById(R.id.pager_title_strip);
-
-
         StatePageAdapter statePageAdapter = new StatePageAdapter(getSupportFragmentManager());
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(statePageAdapter);
+
+        CirclePageIndicator circlePageIndicator = (CirclePageIndicator) findViewById(R.id.circle_page_ndicator);
+        circlePageIndicator.setViewPager(viewPager);
 
     }
 
