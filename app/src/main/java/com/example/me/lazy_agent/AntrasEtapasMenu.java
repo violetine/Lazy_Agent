@@ -42,13 +42,14 @@ public class AntrasEtapasMenu extends FragmentActivity {
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = getSupportManager().beginTransaction();
 
-        Fragment fragment = new PasinaudokManim();
-        fragmentTransaction.replace(R.id.place_holder,fragment);
-        //fragmentTransaction.replace(R.id.fragment_holder,fragment);
-       // fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+       getWindow().getDecorView().getRootView().setKeepScreenOn(true);
 
+        fragmentTransaction.replace(R.id.place_holder,PasinaudokManim.instance);
+        //fragmentTransaction.replace(R.id.fragment_holder,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
+
 
     public static FragmentManager getSupportManager()
     {
@@ -56,11 +57,12 @@ public class AntrasEtapasMenu extends FragmentActivity {
     }
     public static class PasinaudokManim extends Fragment
     {
+        static Fragment instance = new PasinaudokManim();
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
             View view = inflater.inflate(R.layout.antras_etapas_meu_pasinaudok_manim,container,false);
-
+            view.setKeepScreenOn(true);
             View layout = view.findViewById(R.id.ismok_apie_mane);
 
             layout.setOnClickListener(new View.OnClickListener() {
@@ -68,21 +70,26 @@ public class AntrasEtapasMenu extends FragmentActivity {
                 public void onClick(View view) {
 
                     FragmentTransaction fragmentTransaction = getSupportManager().beginTransaction();
-                    Fragment fragment = new ParameterMenu();
-                    fragmentTransaction.replace(R.id.place_holder,fragment);
+
+                    fragmentTransaction.replace(R.id.place_holder,ParameterMenu.instance);
                     fragmentTransaction.addToBackStack(null);
 
                     fragmentTransaction.commit();
 
-                    // fragmentManager.beginTransaction().replace(R.id.fragment_holder,new ParameterMenu());
                 }
             });
 
             return view;
         }
+
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+        }
     }
     public static class ParameterMenu extends Fragment
     {
+        static Fragment instance = new ParameterMenu();
         View rootView;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -100,18 +107,25 @@ public class AntrasEtapasMenu extends FragmentActivity {
             //  ImageView imageView = (ImageView) rootView.findViewById(R.id.menu_brains);
             TranslateAnimation moveLefttoRight = new TranslateAnimation(width, 0, 0, 0);
             moveLefttoRight.setDuration(1500);
-            moveLefttoRight.setFillAfter(true);
+          //  moveLefttoRight.setFillAfter(true);
             linearLayout.startAnimation(moveLefttoRight);
 
-            linearLayout = (LinearLayout) rootView.findViewById(R.id.skrendantis_procas);
-            moveLefttoRight = new TranslateAnimation(width, 0, 0, 0);
-            moveLefttoRight.setDuration(2000);
-            linearLayout.startAnimation(moveLefttoRight);
+            LinearLayout linearLayout1 = (LinearLayout) rootView.findViewById(R.id.skrendantis_procas);
+            TranslateAnimation moveLefttoRight1 = new TranslateAnimation(width, 0, 0, 0);
+            moveLefttoRight1.setDuration(2000);
+            linearLayout1.startAnimation(moveLefttoRight1);
 
-            linearLayout = (LinearLayout) rootView.findViewById(R.id.skrendantis_foikas);
-            moveLefttoRight = new TranslateAnimation(width, 0, 0, 0);
-            moveLefttoRight.setDuration(2500);
-            linearLayout.startAnimation(moveLefttoRight);
+            LinearLayout linearLayout2 = (LinearLayout) rootView.findViewById(R.id.skrendantis_foikas);
+            TranslateAnimation moveLefttoRight2 = new TranslateAnimation(width, 0, 0, 0);
+            moveLefttoRight2.setDuration(2500);
+            linearLayout2.startAnimation(moveLefttoRight2);
+
+            linearLayout2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    getSupportManager().beginTransaction().replace(R.id.place_holder,new TreciasEtapas()).commit();
+                }
+            });
         }
     }
 }

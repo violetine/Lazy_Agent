@@ -3,6 +3,8 @@
     package="com.example.me.lazy_agent" >
 
     <application
+        android:largeHeap="true"
+        android:hardwareAccelerated="true"
         android:allowBackup="true"
         android:theme="@style/AppTheme">
         <activity
