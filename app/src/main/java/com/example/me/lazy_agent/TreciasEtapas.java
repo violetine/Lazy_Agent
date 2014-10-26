@@ -26,21 +26,20 @@ import com.viewpagerindicator.CirclePageIndicator;
 /**
  * Created by Paladin on 10/25/2014.
  */
-public class TreciasEtapas extends Fragment {
+public class TreciasEtapas extends FragmentActivity {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.trecias_etapas_baze);
 
-        View view = inflater.inflate(R.layout.trecias_etapas_pirmas,container,false);
 
         StatePageAdapter statePageAdapter = new StatePageAdapter(AntrasEtapasMenu.getSupportManager());
-        ViewPager viewPager = (ViewPager) view.findViewById(R.id.pager);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         viewPager.setAdapter(statePageAdapter);
 
-        CirclePageIndicator circlePageIndicator = (CirclePageIndicator) view.findViewById(R.id.circle_page_ndicator);
+        CirclePageIndicator circlePageIndicator = (CirclePageIndicator) findViewById(R.id.circle_page_ndicator);
         circlePageIndicator.setViewPager(viewPager);
-
-        return view;
     }
 
     class StatePageAdapter extends FragmentStatePagerAdapter
