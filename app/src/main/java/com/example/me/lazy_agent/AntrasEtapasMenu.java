@@ -3,6 +3,7 @@ package com.example.me.lazy_agent;
 import android.app.ListActivity;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Point;
@@ -96,6 +97,7 @@ public class AntrasEtapasMenu extends FragmentActivity {
 
             rootView = inflater.inflate(R.layout.antras_etapas_menu_telefono_duomenys,container,false); // per root view galima pagaut tevo elementus
             rootView.setKeepScreenOn(true);
+
             return rootView;
         }
 
@@ -123,7 +125,7 @@ public class AntrasEtapasMenu extends FragmentActivity {
             linearLayout2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    getSupportManager().beginTransaction().replace(R.id.place_holder,new TreciasEtapas()).commit();
+                    startActivity(new Intent(getActivity(),TreciasEtapas.class));
                 }
             });
         }
