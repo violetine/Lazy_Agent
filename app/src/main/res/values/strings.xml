@@ -4,7 +4,7 @@
     <string name="app_name">Lazy_Agent</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="smegenu_paaiskinimas">smegenu paaiskinimas</string>
-    <string name="cipo_paaiskinimas">chipo paaiskinimas</string>
-    <string name="foto_paaiskinimas">foto paaiskinimas</string>
+    <string name="smegenu_paaiskinimas">Šis įrenginys yra apie 400 kartų greitesnis, nei kompiuteirs, kuris 1969m. padėjo NASA astronautams nusileisti mėnulyje. </string>
+    <string name="cipo_paaiskinimas">Vienu metu tame pačiame lange galite naršyti dviejuose socialiniuose tinkluose, žiūrėti aukštos kokybės filmą ir skaityti naujienas savo mėgstamame naujienų portale</string>
+    <string name="foto_paaiskinimas">Su šio įrenginio kamera galite padaryti daug nuotraukų per labai trumpą laiką, o po to išsirinkti jums labiausiai patikusią.</string>
 </resources>
