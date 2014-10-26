@@ -1,8 +1,11 @@
 package com.example.me.lazy_agent;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
 
 /**
@@ -34,6 +37,15 @@ public class Second extends Activity {
         imgBus.postDelayed(swapImage, 3000);  // Add me!
         imgBus.setImageResource(R.drawable.deb1);
         imgBus.postDelayed(swapImage, 3000);  // Add me!
+
+        Button button = (Button) findViewById(R.id.button_to_main_menu);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AntrasEtapasMenu.class));
+            }
+        });
     }
 
 

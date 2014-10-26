@@ -9,8 +9,8 @@
      android:id="@+id/place_holder"
      android:layout_width="match_parent"
      android:layout_height="match_parent"
-     android:name="com.example.me.lazy_agent.AntrasEtapasMenu$ParameterMenu"
-     tools:layout="@layout/antras_etapas_menu_telefono_duomenys" />
+     android:name="com.example.me.lazy_agent.AntrasEtapasMenu$PasinaudokManim"
+     tools:layout="@layout/antras_etapas_meu_pasinaudok_manim" />
 
 
 </LinearLayout>

@@ -4,12 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
     android:paddingTop="72dp"
-    android:background="#00bcd4"
+    android:background="#b2ebf2"
     >
 
     <LinearLayout
+        android:paddingLeft="16dp"
+        android:background="#00838f"
         android:id="@+id/skrendancios_smegenys"
         android:animateLayoutChanges="true"
         android:layout_width="match_parent"
@@ -40,6 +41,8 @@
 
 
     <LinearLayout
+        android:paddingLeft="16dp"
+        android:background="#00838f"
         android:id="@+id/skrendantis_procas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -66,6 +69,8 @@
     </LinearLayout>
 
         <LinearLayout
+            android:paddingLeft="16dp"
+            android:background="#00838f"
             android:id="@+id/skrendantis_foikas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

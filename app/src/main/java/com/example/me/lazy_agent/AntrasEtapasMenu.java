@@ -1,6 +1,5 @@
 package com.example.me.lazy_agent;
 
-import android.app.Fragment;
 import android.app.ListActivity;
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -9,7 +8,11 @@ import android.database.Cursor;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.text.Layout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,17 +30,57 @@ import android.widget.SimpleCursorAdapter;
 public class AntrasEtapasMenu extends FragmentActivity {
 
     private static int width;
+    private static FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.antras_etapas_menu);
 
-
         Point point =  new Point();
         getWindowManager().getDefaultDisplay().getSize(point);
         width = point.x;
+        fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = getSupportManager().beginTransaction();
+
+        Fragment fragment = new PasinaudokManim();
+        fragmentTransaction.replace(R.id.place_holder,fragment);
+        //fragmentTransaction.replace(R.id.fragment_holder,fragment);
+       // fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
     }
 
+    public static FragmentManager getSupportManager()
+    {
+        return fragmentManager;
+    }
+    public static class PasinaudokManim extends Fragment
+    {
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+            View view = inflater.inflate(R.layout.antras_etapas_meu_pasinaudok_manim,container,false);
+
+            View layout = view.findViewById(R.id.ismok_apie_mane);
+
+            layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    FragmentTransaction fragmentTransaction = getSupportManager().beginTransaction();
+                    Fragment fragment = new ParameterMenu();
+                    fragmentTransaction.replace(R.id.place_holder,fragment);
+                    fragmentTransaction.addToBackStack(null);
+
+                    fragmentTransaction.commit();
+
+                    // fragmentManager.beginTransaction().replace(R.id.fragment_holder,new ParameterMenu());
+                }
+            });
+
+            return view;
+        }
+    }
     public static class ParameterMenu extends Fragment
     {
         View rootView;

@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -80,24 +82,6 @@ public class FirstSecond extends Activity {
 
 //            sm = (SensorManager) getSystemService(SENSOR_SERVICE);
 //            lastUpdate = System.currentTimeMillis();
-
-
-//            new Thread(){
-//                public void run(){
-//                    try{
-//                        Thread.sleep(1200);
-//
-//                    }
-//                    catch(Exception e){}
-//                }
-//            }.start();
-
-//            String url1 = "android.resource://" + getPackageName() + "/" + R.raw.antrasetapas;
-//            Uri uri1 = Uri.parse(url1);
-//            videoView.setVideoURI(uri1);
-//            videoView.requestFocus();
-//            videoView.start();
-
         }
             @Override
             public boolean onTouchEvent(MotionEvent event)
