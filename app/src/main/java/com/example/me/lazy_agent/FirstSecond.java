@@ -18,10 +18,10 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 
-public class FirstSecond extends Activity implements SensorEventListener {
+public class FirstSecond extends Activity {
 
-    SensorManager sm;
-    long lastUpdate;
+//    SensorManager sm;
+//    long lastUpdate;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +29,32 @@ public class FirstSecond extends Activity implements SensorEventListener {
             setContentView(R.layout.activity_my);
 
             final VideoView videoView = (VideoView) findViewById(R.id.video_view);
-            String url = "android.resource://" + getPackageName() + "/" + R.raw.demo1;
+            String url = "android.resource://" + getPackageName() + "/" + R.raw.movie;
             Uri uri = Uri.parse(url);
 
-            sm = (SensorManager) getSystemService(SENSOR_SERVICE);
-            lastUpdate = System.currentTimeMillis();
+//            sm = (SensorManager) getSystemService(SENSOR_SERVICE);
+//            lastUpdate = System.currentTimeMillis();
 
             videoView.setVideoURI(uri);
             videoView.requestFocus();
             videoView.start();
+
+            new Thread(){
+                public void run(){
+                    try{
+                        Thread.sleep(1200);
+      
+                    }
+                    catch(Exception e){}
+                }
+            }.start();
+
+            String url1 = "android.resource://" + getPackageName() + "/" + R.raw.antrasetapas;
+            Uri uri1 = Uri.parse(url1);
+            videoView.setVideoURI(uri1);
+            videoView.requestFocus();
+            videoView.start();
+
         }
             @Override
             public boolean onTouchEvent(MotionEvent event)
@@ -52,79 +69,63 @@ public class FirstSecond extends Activity implements SensorEventListener {
             }
 
 
-        @Override
-        public boolean onCreateOptionsMenu(Menu menu) {
-            // Inflate the menu; this adds items to the action bar if it is present.
-            getMenuInflater().inflate(R.menu.my, menu);
-            return true;
-        }
+//
+//    @Override
+//    public void onSensorChanged(SensorEvent event) {
+//
+//        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+//
+//            //getAccelerometer(event);
+//        }
+//    }
 
-        @Override
-        public boolean onOptionsItemSelected(MenuItem item) {
-
-            int id = item.getItemId();
-            if (id == R.id.action_settings) {
-                return true;
-            }
-            return super.onOptionsItemSelected(item);
-        }
-
-    @Override
-    public void onSensorChanged(SensorEvent event) {
-
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-
-            getAccelerometer(event);
-        }
-    }
-
-    private void getAccelerometer(SensorEvent event) {
-
-        float[] values = event.values;
-
-        float x = values[0];
-        float y = values[1];
-        float z = values[2];
-
-        float accelationSquareRoot = (x*x + y*y + z*z)
-                / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
-
-        long actualTime = System.currentTimeMillis();
-
-        if (accelationSquareRoot >= 1) {
-
-            if (actualTime-lastUpdate < 20) {
-
-                return;
-            }
-
-            lastUpdate = actualTime;
-
-            Toast.makeText(this, "Device was shuffled",
-                    Toast.LENGTH_SHORT).show();
-            Intent intent=new Intent(this, Second.class);
-            startActivity(intent);
-        }
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
-
-    @Override
-    protected void onPause() {
-        // unregister listener
-        super.onPause();
-        sm.unregisterListener(this);
-    }
-
-    @Override
-    protected void onResume() {
-
-        super.onResume();
-        sm.registerListener(this, sm.getDefaultSensor
-                (Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
-    }
+//    private void getAccelerometer(SensorEvent event) {
+//
+//        float[] values = event.values;
+//
+//        float x = values[0];
+//        float y = values[1];
+//        float z = values[2];
+//
+//        float accelationSquareRoot = (x*x + y*y + z*z)
+//                / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
+//
+//        long actualTime = System.currentTimeMillis();
+//
+//        if (accelationSquareRoot >= 1) {
+//
+//            if (actualTime-lastUpdate < 200) {
+//
+//                return;
+//            }
+//
+//            lastUpdate = actualTime;
+//
+//            Toast.makeText(this, "Device was shuffled",
+//                    Toast.LENGTH_SHORT).show();
+//            Intent intent=new Intent(this, Second.class);
+//            startActivity(intent);
+//        }
+//    }
+//
+//    @Override
+//    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+//
+//    }
+//
+//    @Override
+//    protected void onPause() {
+//        // unregister listener
+//        super.onPause();
+//        sm.unregisterListener(this);
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//
+//        super.onResume();
+//        sm.registerListener(this, sm.getDefaultSensor
+//                (Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+//    }
 
 }
